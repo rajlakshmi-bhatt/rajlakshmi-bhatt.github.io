@@ -1,0 +1,18 @@
+Hi I'm @rajalkshmi-bhatt,
+
+About me:
+🚀 As an accomplished expert with over six years of experience in developing complex business solutions,
+I have now embarked on a transformative journey into the realm of Artificial Intelligence 🤖,
+specializing in machine learning, deep learning, natural language processing (NLP), and computer vision. 
+My expertise lies in designing intelligent systems that optimize processes ⚙️ and
+redefine how technology interacts with the world 🌍.
+
+🎓 With a Master’s degree in Computer Science and Engineering and 
+a proven track record of innovation—winning multiple hackathons 🏆 and 
+publishing research papers in IEEE 📖—I bring a research-driven and problem-solving mindset to every project. 
+My deep curiosity for neural networks, generative AI, reinforcement learning, and 
+quantum computing ⚛️ fuels my exploration of AI solutions that have the potential to shape the future.
+
+💡 Driven by a passion for AI, I am continually pushing the boundaries of what is possible with intelligent systems, 
+aiming to deliver impactful, ethical, and transformative solutions for the modern world 🌎.
+
