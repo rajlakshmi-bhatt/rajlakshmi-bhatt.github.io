@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Magazine</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #magazine {
+            width: 600px;
+            height: 400px;
+        }
+        .page {
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="magazine">
+        <div class="page"><img src="award_1.jpg" alt="Page 1"></div>
+        <div class="page"><img src="award_2.jpg" alt="Page 2"></div>
+        <div class="page"><img src="award_3.jpg" alt="Page 3"></div>
+        <div class="page"><img src="award_4.jpg" alt="Page 4"></div>
+        <div class="page"><img src="award_5.jpg" alt="Page 5"></div>
+        <div class="page"><img src="award_6.jpg" alt="Page 6"></div>
+        <div class="page"><img src="award_7.jpg" alt="Page 7"></div>
+        <div class="page"><img src="award_8.jpg" alt="Page 8"></div>
+        <div class="page"><img src="award_9.jpg" alt="Page 9"></div>
+        <div class="page"><img src="award_10.jpg" alt="Page 10"></div>
+        <div class="page"><img src="award_11.jpg" alt="Page 11"></div>
+        <div class="page"><img src="award_12.jpg" alt="Page 12"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#magazine').turn({
+                width: 600,
+                height: 400,
+                autoCenter: true
+            });
+        });
+    </script>
+</body>
+</html>
