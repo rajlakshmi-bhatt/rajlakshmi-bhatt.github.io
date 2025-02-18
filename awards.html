@@ -28,7 +28,6 @@
             display: inline-block;
             background-color: #fff;
             position: absolute;
-            overflow: hidden;
         }
         img {
             width: 100%;
@@ -41,64 +40,38 @@
         .page:nth-child(even) {
             left: 400px; /* Align the second page to the right */
         }
-        .turn-page {
-            display: inline-block;
-            width: 50%;
-            height: 100%;
-        }
     </style>
 </head>
 <body>
     <div id="magazine">
-        <div class="turn-page">
-            <div class="page"><img src="awards/award_1.png" alt="Award 1"></div>
-            <div class="page"><img src="awards/award_2.png" alt="Award 2"></div>
-        </div>
-        <div class="turn-page">
-            <div class="page"><img src="awards/award_3.png" alt="Award 3"></div>
-            <div class="page"><img src="awards/award_4.png" alt="Award 4"></div>
-        </div>
-        <div class="turn-page">
-            <div class="page"><img src="awards/award_5.png" alt="Award 5"></div>
-            <div class="page"><img src="awards/award_6.png" alt="Award 6"></div>
-        </div>
-        <div class="turn-page">
-            <div class="page"><img src="awards/award_7.png" alt="Award 7"></div>
-            <div class="page"><img src="awards/award_8.png" alt="Award 8"></div>
-        </div>
-        <div class="turn-page">
-            <div class="page"><img src="awards/award_9.png" alt="Award 9"></div>
-            <div class="page"><img src="awards/award_10.png" alt="Award 10"></div>
-        </div>
-        <div class="turn-page">
-            <div class="page"><img src="awards/award_11.png" alt="Award 11"></div>
-            <div class="page"><img src="awards/award_12.png" alt="Award 12"></div>
-        </div>
-        <div class="turn-page">
-            <div class="page"><img src="awards/award_13.png" alt="Award 13"></div>
-            <div class="page"><img src="awards/award_14.png" alt="Award 14"></div>
-        </div>
-        <div class="turn-page">
-            <div class="page"><img src="awards/award_15.png" alt="Award 15"></div>
-            <div class="page"><img src="awards/award_16.png" alt="Award 16"></div>
-        </div>
-        <div class="turn-page">
-            <div class="page"><img src="awards/award_17.png" alt="Award 17"></div>
-            <div class="page"><img src="awards/award_18.png" alt="Award 18"></div>
-        </div>
-        <div class="turn-page">
-            <div class="page"><img src="awards/award_19.png" alt="Award 19"></div>
-        </div>
+        <div class="page"><img src="awards/award_1.png" alt="Award 1"></div>
+        <div class="page"><img src="awards/award_2.png" alt="Award 2"></div>
+        <div class="page"><img src="awards/award_3.png" alt="Award 3"></div>
+        <div class="page"><img src="awards/award_4.png" alt="Award 4"></div>
+        <div class="page"><img src="awards/award_5.png" alt="Award 5"></div>
+        <div class="page"><img src="awards/award_6.png" alt="Award 6"></div>
+        <div class="page"><img src="awards/award_7.png" alt="Award 7"></div>
+        <div class="page"><img src="awards/award_8.png" alt="Award 8"></div>
+        <div class="page"><img src="awards/award_9.png" alt="Award 9"></div>
+        <div class="page"><img src="awards/award_10.png" alt="Award 10"></div>
+        <div class="page"><img src="awards/award_11.png" alt="Award 11"></div>
+        <div class="page"><img src="awards/award_12.png" alt="Award 12"></div>
+        <div class="page"><img src="awards/award_13.png" alt="Award 13"></div>
+        <div class="page"><img src="awards/award_14.png" alt="Award 14"></div>
+        <div class="page"><img src="awards/award_15.png" alt="Award 15"></div>
+        <div class="page"><img src="awards/award_16.png" alt="Award 16"></div>
+        <div class="page"><img src="awards/award_17.png" alt="Award 17"></div>
+        <div class="page"><img src="awards/award_18.png" alt="Award 18"></div>
+        <div class="page"><img src="awards/award_19.png" alt="Award 19"></div>
     </div>
 
     <script>
         $(document).ready(function() {
-            // Initialize the turn.js plugin
             $('#magazine').turn({
                 width: 800,
                 height: 500,
                 autoCenter: true,
-                display: 'double', // Display pages as double pages
+                display: 'double',
                 when: {
                     turned: function(event, page, view) {
                         console.log('Current page: ' + page);
