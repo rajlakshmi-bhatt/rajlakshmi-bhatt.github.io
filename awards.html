@@ -121,7 +121,7 @@
 
     <!-- Enlarged Image Panel -->
     <div class="enlarged-image-panel" id="image-panel">
-        <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+        <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image" style="display: none;">
         <button class="close-btn" onclick="closeImagePanel()">×</button>
     </div>
 
@@ -130,7 +130,7 @@
         $(document).ready(function() {
             $('.thumbnail').click(function() {
                 var largeImageSrc = $(this).data('large');
-                $('#enlarged-image').attr('src', largeImageSrc); // Set the large image source
+                $('#enlarged-image').attr('src', largeImageSrc).show(); // Set the large image source and make it visible
                 $('#image-panel').fadeIn(); // Show the transparent panel
             });
         });
@@ -138,7 +138,7 @@
         // Function to close the image panel
         function closeImagePanel() {
             $('#image-panel').fadeOut(); // Hide the transparent panel
-            $('#enlarged-image').attr('src', ''); // Clear the image source to prevent it from showing an empty image
+            $('#enlarged-image').attr('src', '').hide(); // Clear the image source and hide the image
         }
     </script>
 
