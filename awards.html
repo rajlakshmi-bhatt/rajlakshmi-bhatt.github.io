@@ -58,15 +58,17 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            display: flex; /* Ensures the content is centered */
         }
 
         /* Enlarged Image Styling */
         .enlarged-image {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 90%;   /* Max width of the image */
+            max-height: 90%;  /* Max height of the image */
             border: 5px solid #00ffcc; /* Neon border around the enlarged image */
             border-radius: 15px;
             box-shadow: 0 0 20px #00ffcc;
+            object-fit: contain; /* Ensures the image fits proportionally */
         }
 
         /* Close Button for Enlarged Image */
@@ -139,4 +141,3 @@
 
 </body>
 </html>
-
