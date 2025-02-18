@@ -3,82 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Magazine</title>
+    <title>Image Thumbnail Gallery</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
     <style>
         body {
-            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        /* Thumbnail Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 thumbnails per row */
+            gap: 10px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .thumbnail {
+            width: 10cm; /* 10cm width */
+            height: 10cm; /* 10cm height */
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+        /* Transparent panel for enlarged image */
+        .enlarged-image-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
+            z-index: 9999;
         }
-        #magazine {
-            width: 800px;
-            height: 500px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            position: relative;
+        .enlarged-image {
+            max-width: 90%;
+            max-height: 90%;
+            border: 5px solid white;
         }
-        .page {
-            width: 400px; /* Half the width to create the double-page layout */
-            height: 100%;
-            display: inline-block;
-            background-color: #fff;
+        .close-btn {
             position: absolute;
-        }
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .page:nth-child(odd) {
-            left: 0;
-        }
-        .page:nth-child(even) {
-            left: 400px; /* Align the second page to the right */
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-    <div id="magazine">
-        <div class="page"><img src="awards/award_1.png" alt="Award 1"></div>
-        <div class="page"><img src="awards/award_2.png" alt="Award 2"></div>
-        <div class="page"><img src="awards/award_3.png" alt="Award 3"></div>
-        <div class="page"><img src="awards/award_4.png" alt="Award 4"></div>
-        <div class="page"><img src="awards/award_5.png" alt="Award 5"></div>
-        <div class="page"><img src="awards/award_6.png" alt="Award 6"></div>
-        <div class="page"><img src="awards/award_7.png" alt="Award 7"></div>
-        <div class="page"><img src="awards/award_8.png" alt="Award 8"></div>
-        <div class="page"><img src="awards/award_9.png" alt="Award 9"></div>
-        <div class="page"><img src="awards/award_10.png" alt="Award 10"></div>
-        <div class="page"><img src="awards/award_11.png" alt="Award 11"></div>
-        <div class="page"><img src="awards/award_12.png" alt="Award 12"></div>
-        <div class="page"><img src="awards/award_13.png" alt="Award 13"></div>
-        <div class="page"><img src="awards/award_14.png" alt="Award 14"></div>
-        <div class="page"><img src="awards/award_15.png" alt="Award 15"></div>
-        <div class="page"><img src="awards/award_16.png" alt="Award 16"></div>
-        <div class="page"><img src="awards/award_17.png" alt="Award 17"></div>
-        <div class="page"><img src="awards/award_18.png" alt="Award 18"></div>
-        <div class="page"><img src="awards/award_19.png" alt="Award 19"></div>
+
+    <!-- Thumbnail Gallery -->
+    <div class="gallery">
+        <div><img class="thumbnail" src="awards/award_1.png" alt="Award 1" data-large="awards/award_1.png"></div>
+        <div><img class="thumbnail" src="awards/award_2.png" alt="Award 2" data-large="awards/award_2.png"></div>
+        <div><img class="thumbnail" src="awards/award_3.png" alt="Award 3" data-large="awards/award_3.png"></div>
+        <div><img class="thumbnail" src="awards/award_4.png" alt="Award 4" data-large="awards/award_4.png"></div>
+        <div><img class="thumbnail" src="awards/award_5.png" alt="Award 5" data-large="awards/award_5.png"></div>
+        <div><img class="thumbnail" src="awards/award_6.png" alt="Award 6" data-large="awards/award_6.png"></div>
+        <div><img class="thumbnail" src="awards/award_7.png" alt="Award 7" data-large="awards/award_7.png"></div>
+        <div><img class="thumbnail" src="awards/award_8.png" alt="Award 8" data-large="awards/award_8.png"></div>
+        <div><img class="thumbnail" src="awards/award_9.png" alt="Award 9" data-large="awards/award_9.png"></div>
+        <div><img class="thumbnail" src="awards/award_10.png" alt="Award 10" data-large="awards/award_10.png"></div>
+        <div><img class="thumbnail" src="awards/award_11.png" alt="Award 11" data-large="awards/award_11.png"></div>
+        <div><img class="thumbnail" src="awards/award_12.png" alt="Award 12" data-large="awards/award_12.png"></div>
+        <div><img class="thumbnail" src="awards/award_13.png" alt="Award 13" data-large="awards/award_13.png"></div>
+        <div><img class="thumbnail" src="awards/award_14.png" alt="Award 14" data-large="awards/award_14.png"></div>
+        <div><img class="thumbnail" src="awards/award_15.png" alt="Award 15" data-large="awards/award_15.png"></div>
+        <div><img class="thumbnail" src="awards/award_16.png" alt="Award 16" data-large="awards/award_16.png"></div>
+        <div><img class="thumbnail" src="awards/award_17.png" alt="Award 17" data-large="awards/award_17.png"></div>
+        <div><img class="thumbnail" src="awards/award_18.png" alt="Award 18" data-large="awards/award_18.png"></div>
+        <div><img class="thumbnail" src="awards/award_19.png" alt="Award 19" data-large="awards/award_19.png"></div>
+    </div>
+
+    <!-- Enlarged Image Panel -->
+    <div class="enlarged-image-panel" id="image-panel">
+        <button class="close-btn" onclick="closeImagePanel()">×</button>
+        <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
     </div>
 
     <script>
+        // When a thumbnail is clicked, enlarge the image in the transparent panel
         $(document).ready(function() {
-            $('#magazine').turn({
-                width: 800,
-                height: 500,
-                autoCenter: true,
-                display: 'double',
-                when: {
-                    turned: function(event, page, view) {
-                        console.log('Current page: ' + page);
-                    }
-                }
+            $('.thumbnail').click(function() {
+                var largeImageSrc = $(this).data('large');
+                $('#enlarged-image').attr('src', largeImageSrc); // Set the large image source
+                $('#image-panel').fadeIn(); // Show the transparent panel
             });
         });
+
+        // Function to close the image panel
+        function closeImagePanel() {
+            $('#image-panel').fadeOut(); // Hide the transparent panel
+        }
     </script>
+
 </body>
 </html>
