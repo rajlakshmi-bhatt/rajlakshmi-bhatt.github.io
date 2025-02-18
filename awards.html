@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Dark background for the body */
+            background-color: #000; /* Solid black background */
             color: #fff;
         }
 
@@ -39,10 +39,10 @@
             border-radius: 10px;
         }
 
-        /* Neon Glow Effect on Thumbnails */
+        /* Enhanced Neon Glow Effect on Thumbnails */
         .thumbnail:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
+            box-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffcc, 0 0 90px #00ffcc; /* Stronger neon glow */
             border: 3px solid #00ffcc; /* Neon border */
         }
 
@@ -54,7 +54,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
             justify-content: center;
             align-items: center;
             z-index: 9999;
@@ -67,15 +67,16 @@
             max-height: 90%;  /* Max height of the image */
             border: 5px solid #00ffcc; /* Neon border around the enlarged image */
             border-radius: 15px;
-            box-shadow: 0 0 20px #00ffcc;
+            box-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffcc, 0 0 90px #00ffcc; /* Stronger neon glow */
             object-fit: contain; /* Ensures the image fits proportionally */
+            position: relative; /* To position the close button inside it */
         }
 
         /* Close Button for Enlarged Image */
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 10px;    /* Adjust this value to control the position from the top */
+            right: 10px;  /* Adjust this value to control the position from the right */
             font-size: 30px;
             color: white;
             background: rgba(0, 0, 0, 0.5);
@@ -83,12 +84,13 @@
             border-radius: 50%;
             cursor: pointer;
             padding: 10px;
-            box-shadow: 0 0 10px #00ffcc;
+            box-shadow: 0 0 20px #00ffcc;
             transition: background 0.3s ease;
         }
+
         .close-btn:hover {
             background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0 0 20px #00ffcc;
+            box-shadow: 0 0 30px #00ffcc;
         }
     </style>
 </head>
@@ -119,8 +121,8 @@
 
     <!-- Enlarged Image Panel -->
     <div class="enlarged-image-panel" id="image-panel">
-        <button class="close-btn" onclick="closeImagePanel()">×</button>
         <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+        <button class="close-btn" onclick="closeImagePanel()">×</button>
     </div>
 
     <script>
