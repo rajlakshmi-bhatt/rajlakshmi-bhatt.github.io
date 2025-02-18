@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery with Lightbox</title>
+    <title>Image Thumbnail Gallery</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
@@ -12,44 +12,45 @@
             padding: 0;
             background-color: #f0f0f0;
         }
+        /* Thumbnail Gallery */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr); /* 5 thumbnails per row */
             gap: 10px;
             padding: 20px;
             max-width: 1200px;
             margin: auto;
         }
         .thumbnail {
-            width: 100%;
-            height: 200px;
+            width: 10cm; /* 10cm width */
+            height: 10cm; /* 10cm height */
             object-fit: cover;
             cursor: pointer;
             transition: transform 0.3s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         }
         .thumbnail:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
-        .lightbox {
+        /* Transparent panel for enlarged image */
+        .enlarged-image-panel {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.7);
             justify-content: center;
             align-items: center;
+            z-index: 9999;
         }
-        .lightbox img {
+        .enlarged-image {
             max-width: 90%;
             max-height: 90%;
             border: 5px solid white;
         }
-        .lightbox:target {
-            display: flex;
-        }
-        .close {
+        .close-btn {
             position: absolute;
             top: 20px;
             right: 20px;
@@ -77,27 +78,36 @@
         <div><img class="thumbnail" src="awards/award_8.png" alt="Award 8" data-large="awards/award_8.png"></div>
         <div><img class="thumbnail" src="awards/award_9.png" alt="Award 9" data-large="awards/award_9.png"></div>
         <div><img class="thumbnail" src="awards/award_10.png" alt="Award 10" data-large="awards/award_10.png"></div>
+        <div><img class="thumbnail" src="awards/award_11.png" alt="Award 11" data-large="awards/award_11.png"></div>
+        <div><img class="thumbnail" src="awards/award_12.png" alt="Award 12" data-large="awards/award_12.png"></div>
+        <div><img class="thumbnail" src="awards/award_13.png" alt="Award 13" data-large="awards/award_13.png"></div>
+        <div><img class="thumbnail" src="awards/award_14.png" alt="Award 14" data-large="awards/award_14.png"></div>
+        <div><img class="thumbnail" src="awards/award_15.png" alt="Award 15" data-large="awards/award_15.png"></div>
+        <div><img class="thumbnail" src="awards/award_16.png" alt="Award 16" data-large="awards/award_16.png"></div>
+        <div><img class="thumbnail" src="awards/award_17.png" alt="Award 17" data-large="awards/award_17.png"></div>
+        <div><img class="thumbnail" src="awards/award_18.png" alt="Award 18" data-large="awards/award_18.png"></div>
+        <div><img class="thumbnail" src="awards/award_19.png" alt="Award 19" data-large="awards/award_19.png"></div>
     </div>
 
-    <!-- Lightbox Popup -->
-    <div class="lightbox" id="lightbox">
-        <button class="close" onclick="closeLightbox()">×</button>
-        <img id="lightbox-image" src="" alt="Enlarged Image">
+    <!-- Enlarged Image Panel -->
+    <div class="enlarged-image-panel" id="image-panel">
+        <button class="close-btn" onclick="closeImagePanel()">×</button>
+        <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
     </div>
 
     <script>
-        // Open lightbox when thumbnail is clicked
+        // When a thumbnail is clicked, enlarge the image in the transparent panel
         $(document).ready(function() {
             $('.thumbnail').click(function() {
                 var largeImageSrc = $(this).data('large');
-                $('#lightbox-image').attr('src', largeImageSrc);
-                window.location.hash = 'lightbox'; // Show lightbox by updating URL hash
+                $('#enlarged-image').attr('src', largeImageSrc); // Set the large image source
+                $('#image-panel').fadeIn(); // Show the transparent panel
             });
         });
 
-        // Close lightbox
-        function closeLightbox() {
-            window.location.hash = ''; // Remove URL hash to hide lightbox
+        // Function to close the image panel
+        function closeImagePanel() {
+            $('#image-panel').fadeOut(); // Hide the transparent panel
         }
     </script>
 
