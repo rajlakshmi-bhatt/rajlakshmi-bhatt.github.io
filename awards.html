@@ -74,6 +74,7 @@
 
         /* Close Button for Enlarged Image */
         .close-btn {
+            display: none; /* Initially hide the close button */
             position: absolute;
             top: 10px;    /* Adjust this value to control the position from the top */
             right: 10px;  /* Adjust this value to control the position from the right */
@@ -119,9 +120,9 @@
         <div><img class="thumbnail" src="awards/award_19.png" alt="Award 19" data-large="awards/award_19.png"></div>
     </div>
 
-    <!-- Enlarged Image Panel -->
+    <!-- Enlarged Image Panel (Initially hidden) -->
     <div class="enlarged-image-panel" id="image-panel">
-        <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image" style="display: none;">
+        <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
         <button class="close-btn" onclick="closeImagePanel()">×</button>
     </div>
 
@@ -130,15 +131,22 @@
         $(document).ready(function() {
             $('.thumbnail').click(function() {
                 var largeImageSrc = $(this).data('large');
-                $('#enlarged-image').attr('src', largeImageSrc).show(); // Set the large image source and make it visible
-                $('#image-panel').fadeIn(); // Show the transparent panel
+                
+                // Set the large image source and display it in the panel
+                $('#enlarged-image').attr('src', largeImageSrc);
+                
+                // Show the image panel with a fade-in effect
+                $('#image-panel').fadeIn();
+                
+                // Show the close button once the image is enlarged
+                $('.close-btn').fadeIn();
             });
         });
 
-        // Function to close the image panel
+        // Function to close the enlarged image panel
         function closeImagePanel() {
-            $('#image-panel').fadeOut(); // Hide the transparent panel
-            $('#enlarged-image').attr('src', '').hide(); // Clear the image source and hide the image
+            $('#image-panel').fadeOut(); // Hide the image panel with a fade-out effect
+            $('.close-btn').fadeOut();   // Hide the close button when the panel is closed
         }
     </script>
 
