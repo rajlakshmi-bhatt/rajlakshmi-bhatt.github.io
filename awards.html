@@ -122,13 +122,13 @@
 
     <!-- Enlarged Image Panel (Initially hidden) -->
     <div class="enlarged-image-panel" id="image-panel">
-        <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+        <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image" onclick="openImagePanel()">
         <button class="close-btn" onclick="closeImagePanel()">×</button>
     </div>
 
     <script>
         // When a thumbnail is clicked, enlarge the image in the transparent panel
-        $(document).ready(function() {
+        function openImagePanel() {
             $('.thumbnail').click(function() {
                 var largeImageSrc = $(this).data('large');
                 
