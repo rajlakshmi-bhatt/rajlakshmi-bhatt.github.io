@@ -10,10 +10,9 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Dark background for the body */
-            color: #fff;
+            background-color: #f0f0f0;
         }
-        /* Glossy Black Background for Gallery */
+        /* Thumbnail Gallery */
         .gallery {
             display: grid;
             grid-template-columns: repeat(5, 1fr); /* 5 thumbnails per row */
@@ -21,28 +20,19 @@
             padding: 20px;
             max-width: 1200px;
             margin: auto;
-            background: linear-gradient(145deg, #1a1a1a, #333); /* Black glossy background */
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
-        /* Thumbnail Styling */
         .thumbnail {
             width: 10cm; /* 10cm width */
             height: 10cm; /* 10cm height */
             object-fit: cover;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-            border: 3px solid transparent;
-            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         }
-        /* Neon Glow Effect on Thumbnails */
         .thumbnail:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
-            border: 3px solid #00ffcc; /* Neon border */
         }
-        /* Transparent Panel for Enlarged Image */
+        /* Transparent panel for enlarged image */
         .enlarged-image-panel {
             display: none;
             position: fixed;
@@ -50,20 +40,16 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            background: rgba(0, 0, 0, 0.7);
             justify-content: center;
             align-items: center;
             z-index: 9999;
         }
-        /* Enlarged Image Styling */
         .enlarged-image {
             max-width: 90%;
             max-height: 90%;
-            border: 5px solid #00ffcc; /* Neon border around the enlarged image */
-            border-radius: 15px;
-            box-shadow: 0 0 20px #00ffcc;
+            border: 5px solid white;
         }
-        /* Close Button for Enlarged Image */
         .close-btn {
             position: absolute;
             top: 20px;
@@ -75,12 +61,6 @@
             border-radius: 50%;
             cursor: pointer;
             padding: 10px;
-            box-shadow: 0 0 10px #00ffcc;
-            transition: background 0.3s ease;
-        }
-        .close-btn:hover {
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0 0 20px #00ffcc;
         }
     </style>
 </head>
