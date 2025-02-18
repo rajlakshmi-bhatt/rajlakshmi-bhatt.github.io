@@ -13,10 +13,11 @@
             background-color: #121212; /* Dark background for the body */
             color: #fff;
         }
-        /* Glossy Black Background for Gallery */
+
+        /* Gallery grid with 4 columns */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(5, 1fr); /* 5 thumbnails per row */
+            grid-template-columns: repeat(4, 1fr); /* 4 thumbnails per row */
             gap: 10px;
             padding: 20px;
             max-width: 1200px;
@@ -25,10 +26,11 @@
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
+
         /* Thumbnail Styling */
         .thumbnail {
-            width: 5cm; /* 10cm width */
-            height: 5cm; /* 10cm height */
+            width: 4cm; /* 4cm width */
+            height: 4cm; /* 4cm height */
             object-fit: cover;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -36,12 +38,14 @@
             border: 3px solid transparent;
             border-radius: 10px;
         }
+
         /* Neon Glow Effect on Thumbnails */
         .thumbnail:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
             border: 3px solid #00ffcc; /* Neon border */
         }
+
         /* Transparent Panel for Enlarged Image */
         .enlarged-image-panel {
             display: none;
@@ -55,6 +59,7 @@
             align-items: center;
             z-index: 9999;
         }
+
         /* Enlarged Image Styling */
         .enlarged-image {
             max-width: 90%;
@@ -63,6 +68,7 @@
             border-radius: 15px;
             box-shadow: 0 0 20px #00ffcc;
         }
+
         /* Close Button for Enlarged Image */
         .close-btn {
             position: absolute;
@@ -133,3 +139,4 @@
 
 </body>
 </html>
+
