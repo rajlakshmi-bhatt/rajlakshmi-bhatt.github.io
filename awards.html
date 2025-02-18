@@ -13,14 +13,20 @@
             align-items: center;
             height: 100vh;
             background-color: #f0f0f0;
+            margin: 0;
         }
         #magazine {
-            width: 600px;
-            height: 400px;
+            width: 800px;
+            height: 500px;
+            background-color: #fff;
+            border: 1px solid #ccc;
         }
         .page {
-            width: 100%;
+            width: 50%;
             height: 100%;
+            float: left;
+            display: inline-block;
+            background-color: #fff;
         }
         img {
             width: 100%;
@@ -54,10 +60,17 @@
 
     <script>
         $(document).ready(function() {
+            // Initialize the turn.js plugin on the #magazine div
             $('#magazine').turn({
-                width: 600,
-                height: 400,
-                autoCenter: true
+                width: 800,
+                height: 500,
+                autoCenter: true,
+                display: 'double', // Display pages as double pages
+                when: {
+                    turned: function(event, page, view) {
+                        console.log('Current page: ' + page);
+                    }
+                }
             });
         });
     </script>
