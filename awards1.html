@@ -57,6 +57,13 @@
             display: flex;
         }
 
+        .enlarged-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .enlarged-image {
             max-width: 90%;
             max-height: 90%;
@@ -64,7 +71,6 @@
             border-radius: 15px;
             box-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffcc, 0 0 90px #00ffcc;
             object-fit: contain;
-            position: relative;
         }
 
         .close-btn {
@@ -101,12 +107,23 @@
         <div><img class="thumbnail" src="awards/award_8.png" alt="Award 8" data-large="awards/award_8.png"></div>
         <div><img class="thumbnail" src="awards/award_9.png" alt="Award 9" data-large="awards/award_9.png"></div>
         <div><img class="thumbnail" src="awards/award_10.png" alt="Award 10" data-large="awards/award_10.png"></div>
+        <div><img class="thumbnail" src="awards/award_11.png" alt="Award 11" data-large="awards/award_11.png"></div>
+        <div><img class="thumbnail" src="awards/award_12.png" alt="Award 12" data-large="awards/award_12.png"></div>
+        <div><img class="thumbnail" src="awards/award_13.png" alt="Award 13" data-large="awards/award_13.png"></div>
+        <div><img class="thumbnail" src="awards/award_14.png" alt="Award 14" data-large="awards/award_14.png"></div>
+        <div><img class="thumbnail" src="awards/award_15.png" alt="Award 15" data-large="awards/award_15.png"></div>
+        <div><img class="thumbnail" src="awards/award_16.png" alt="Award 16" data-large="awards/award_16.png"></div>
+        <div><img class="thumbnail" src="awards/award_17.png" alt="Award 17" data-large="awards/award_17.png"></div>
+        <div><img class="thumbnail" src="awards/award_18.png" alt="Award 18" data-large="awards/award_18.png"></div>
+        <div><img class="thumbnail" src="awards/award_19.png" alt="Award 19" data-large="awards/award_19.png"></div>
     </div>
 
     <!-- Enlarged Image Panel -->
     <div class="enlarged-image-panel" id="image-panel">
-        <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
-        <button class="close-btn" id="close-btn">×</button>
+        <div class="enlarged-image-container">
+            <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+            <button class="close-btn" id="close-btn">×</button>
+        </div>
     </div>
 
     <script>
@@ -117,8 +134,10 @@
                 $("#image-panel").fadeIn();
             });
 
-            $("#close-btn, #image-panel").click(function() {
-                $("#image-panel").fadeOut();
+            $("#close-btn, #image-panel").click(function(event) {
+                if (event.target === this) {
+                    $("#image-panel").fadeOut();
+                }
             });
         });
     </script>
