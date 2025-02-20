@@ -64,12 +64,12 @@
         }
 
         .enlarged-image {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 90vw;  /* Maximum width = 90% of viewport width */
+            max-height: 90vh; /* Maximum height = 90% of viewport height */
             border: 5px solid #00ffcc;
             border-radius: 15px;
             box-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffcc, 0 0 90px #00ffcc;
-            object-fit: contain;
+            object-fit: contain; /* Ensures the image fits without distortion */
         }
 
         .close-btn {
