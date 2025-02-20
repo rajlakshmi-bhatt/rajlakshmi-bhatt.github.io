@@ -10,27 +10,25 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000; /* Solid black background */
+            background-color: #000;
             color: #fff;
         }
 
-        /* Gallery grid with 4 columns */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 thumbnails per row */
+            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
             padding: 20px;
             max-width: 1200px;
             margin: auto;
-            background: linear-gradient(145deg, #1a1a1a, #333); /* Black glossy background */
+            background: linear-gradient(145deg, #1a1a1a, #333);
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Thumbnail Styling */
         .thumbnail {
-            width: 4cm; /* 4cm width */
-            height: 4cm; /* 4cm height */
+            width: 4cm;
+            height: 4cm;
             object-fit: cover;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
@@ -39,14 +37,12 @@
             border-radius: 10px;
         }
 
-        /* Enhanced Neon Glow Effect on Thumbnails */
         .thumbnail:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffcc, 0 0 90px #00ffcc; /* Stronger neon glow */
-            border: 3px solid #00ffcc; /* Neon border */
+            box-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffcc, 0 0 90px #00ffcc;
+            border: 3px solid #00ffcc;
         }
 
-        /* Transparent Panel for Enlarged Image */
         .enlarged-image-panel {
             display: none;
             position: fixed;
@@ -54,30 +50,27 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+            background: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            display: flex; /* Ensures the content is centered */
-        }
-
-        /* Enlarged Image Styling */
-        .enlarged-image {
             display: flex;
-            max-width: 90%;   /* Max width of the image */
-            max-height: 90%;  /* Max height of the image */
-            border: 5px solid #00ffcc; /* Neon border around the enlarged image */
-            border-radius: 15px;
-            box-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffcc, 0 0 90px #00ffcc; /* Stronger neon glow */
-            object-fit: contain; /* Ensures the image fits proportionally */
-            position: relative; /* To position the close button inside it */
         }
 
-        /* Close Button for Enlarged Image */
+        .enlarged-image {
+            max-width: 90%;
+            max-height: 90%;
+            border: 5px solid #00ffcc;
+            border-radius: 15px;
+            box-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffcc, 0 0 90px #00ffcc;
+            object-fit: contain;
+            position: relative;
+        }
+
         .close-btn {
             position: absolute;
-            top: 10px;    /* Adjust this value to control the position from the top */
-            right: 10px;  /* Adjust this value to control the position from the right */
+            top: 10px;
+            right: 10px;
             font-size: 30px;
             color: white;
             background: rgba(0, 0, 0, 0.5);
@@ -97,7 +90,6 @@
 </head>
 <body>
 
-    <!-- Thumbnail Gallery -->
     <div class="gallery">
         <div><img class="thumbnail" src="awards/award_1.png" alt="Award 1" data-large="awards/award_1.png"></div>
         <div><img class="thumbnail" src="awards/award_2.png" alt="Award 2" data-large="awards/award_2.png"></div>
@@ -109,42 +101,26 @@
         <div><img class="thumbnail" src="awards/award_8.png" alt="Award 8" data-large="awards/award_8.png"></div>
         <div><img class="thumbnail" src="awards/award_9.png" alt="Award 9" data-large="awards/award_9.png"></div>
         <div><img class="thumbnail" src="awards/award_10.png" alt="Award 10" data-large="awards/award_10.png"></div>
-        <div><img class="thumbnail" src="awards/award_11.png" alt="Award 11" data-large="awards/award_11.png"></div>
-        <div><img class="thumbnail" src="awards/award_12.png" alt="Award 12" data-large="awards/award_12.png"></div>
-        <div><img class="thumbnail" src="awards/award_13.png" alt="Award 13" data-large="awards/award_13.png"></div>
-        <div><img class="thumbnail" src="awards/award_14.png" alt="Award 14" data-large="awards/award_14.png"></div>
-        <div><img class="thumbnail" src="awards/award_15.png" alt="Award 15" data-large="awards/award_15.png"></div>
-        <div><img class="thumbnail" src="awards/award_16.png" alt="Award 16" data-large="awards/award_16.png"></div>
-        <div><img class="thumbnail" src="awards/award_17.png" alt="Award 17" data-large="awards/award_17.png"></div>
-        <div><img class="thumbnail" src="awards/award_18.png" alt="Award 18" data-large="awards/award_18.png"></div>
-        <div><img class="thumbnail" src="awards/award_19.png" alt="Award 19" data-large="awards/award_19.png"></div>
     </div>
 
-    <!-- Enlarged Image Panel (Initially hidden) 
+    <!-- Enlarged Image Panel -->
     <div class="enlarged-image-panel" id="image-panel">
         <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
-        <button class="close-btn" onclick="closeImagePanel()">×</button>
-    </div> -->
+        <button class="close-btn" id="close-btn">×</button>
+    </div>
 
     <script>
-        // When a thumbnail is clicked, enlarge the image in the transparent panel
         $(document).ready(function() {
-            $('#enlarged-image-panel').hide();
-            $('.thumbnail').click(function() {
-                var largeImageSrc = $(this).data('large');
-                
-                // Set the large image source and display it in the panel
-                $('#enlarged-image').attr('src', largeImageSrc);
-                
-                // Show the image panel with a fade-in effect
-                $('#image-panel').fadeIn();
+            $(".thumbnail").click(function() {
+                var largeImageSrc = $(this).data("large");
+                $("#enlarged-image").attr("src", largeImageSrc);
+                $("#image-panel").fadeIn();
+            });
+
+            $("#close-btn, #image-panel").click(function() {
+                $("#image-panel").fadeOut();
             });
         });
-
-        // Function to close the enlarged image panel
-        function closeImagePanel() {
-            $('#image-panel').fadeOut(); // Hide the image panel with a fade-out effect
-        }
     </script>
 
 </body>
