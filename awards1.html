@@ -120,17 +120,16 @@
         <div><img class="thumbnail" src="awards/award_19.png" alt="Award 19" data-large="awards/award_19.png"></div>
     </div>
 
-    <!-- Enlarged Image Panel (Initially hidden) -->
+    <!-- Enlarged Image Panel (Initially hidden) 
     <div class="enlarged-image-panel" id="image-panel">
         <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
         <button class="close-btn" onclick="closeImagePanel()">×</button>
-    </div>
+    </div> -->
 
     <script>
         // When a thumbnail is clicked, enlarge the image in the transparent panel
         $(document).ready(function() {
             $('#enlarged-image-panel').hide();
-            $('#enlarged-image').hide();
             $('.thumbnail').click(function() {
                 var largeImageSrc = $(this).data('large');
                 
