@@ -44,7 +44,7 @@
         }
 
         .enlarged-image-panel {
-            display: none;
+            display: none; /* Hide the panel by default */
             position: fixed;
             top: 0;
             left: 0;
@@ -54,7 +54,6 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            display: flex;
         }
 
         .enlarged-image-container {
@@ -118,22 +117,27 @@
         <div><img class="thumbnail" src="awards/award_19.png" alt="Award 19" data-large="awards/award_19.png"></div>
     </div>
 
-    <!-- Enlarged Image Panel -->
+    <!-- Enlarged Image Panel (Hidden initially) -->
     <div class="enlarged-image-panel" id="image-panel">
         <div class="enlarged-image-container">
-            <img id="enlarged-image" class="enlarged-image" src="" alt="Enlarged Image">
+            <img id="enlarged-image" class="enlarged-image" src="" alt="">
             <button class="close-btn" id="close-btn">×</button>
         </div>
     </div>
 
     <script>
         $(document).ready(function() {
+            // Ensure panel is hidden when page loads
+            $("#image-panel").hide();
+
+            // Open image panel when a thumbnail is clicked
             $(".thumbnail").click(function() {
                 var largeImageSrc = $(this).data("large");
                 $("#enlarged-image").attr("src", largeImageSrc);
                 $("#image-panel").fadeIn();
             });
 
+            // Close panel when clicking outside the image or on the close button
             $("#close-btn, #image-panel").click(function(event) {
                 if (event.target === this) {
                     $("#image-panel").fadeOut();
