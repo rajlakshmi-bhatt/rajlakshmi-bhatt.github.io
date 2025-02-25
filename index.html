@@ -1,4 +1,41 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faded Background Image</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('bg.png') no-repeat center center/cover;
+            filter: brightness(50%); /* Adjust this for more fading */
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="background"></div>
+<div class="content">
 <h1>Hi!
 
 I'm Rajlakshmi Bhatt</h1>
@@ -20,5 +57,8 @@ quantum computing ⚛️ fuels my exploration of AI solutions that have the pote
 aiming to deliver impactful, ethical, and transformative solutions for the modern world 🌎.
 </p>
 <a href="awards.html">View my awards here...</a>
-
+</div>
+  
+</body>
 </html>
+
