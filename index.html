@@ -13,8 +13,9 @@
             align-items: center;
             justify-content: center;
             font-family: Arial, sans-serif;
-            color: white;
+            color: black; /* Text color */
             text-align: center;
+            font-weight: bold; /* Bold text */
         }
 
         .background {
@@ -23,19 +24,31 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('bg.png') no-repeat center center/cover;
-            filter: brightness(50%); /* Adjust this for more fading */
+            background: url('your-image.jpg') no-repeat center center/cover;
+            filter: brightness(20%); /* Increase fading (10% - 30% works best) */
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7); /* White overlay with 70% opacity */
         }
 
         .content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
-<div class="background"></div>
-<div class="content">
+
+    <div class="background"></div>
+    <div class="overlay"></div> <!-- Increases transparency effect -->
+
+    <div class="content">
 <h1>Hi!
 
 I'm Rajlakshmi Bhatt</h1>
@@ -58,7 +71,6 @@ aiming to deliver impactful, ethical, and transformative solutions for the moder
 </p>
 <a href="awards.html">View my awards here...</a>
 </div>
-  
+
 </body>
 </html>
-
